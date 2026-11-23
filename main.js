@@ -165,6 +165,7 @@
     /* ---------- counters ---------- */
     gsap.utils.toArray(".stat__num").forEach((el) => {
       const target = parseInt(el.dataset.count, 10) || 0;
+      if (reduced) { el.textContent = target; return; }
       const obj = { v: 0 };
       gsap.to(obj, {
         v: target,

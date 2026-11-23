@@ -446,6 +446,17 @@ html.js .reveal { opacity: 0; transform: translateY(42px); }
   padding: 0.3rem 0.6rem;
 }
 .card:hover .card__tags li { border-color: rgba(10, 10, 12, 0.4); }
+.card--feature { border-color: var(--acid); box-shadow: inset 0 0 0 1px rgba(204, 255, 0, 0.25); }
+.card__badge {
+  align-self: flex-start;
+  background: var(--acid);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.62rem;
+  padding: 0.35rem 0.6rem;
+  margin-bottom: 1rem;
+}
+.card:hover .card__badge { background: var(--ink); color: var(--acid); }
 .card__link { margin-top: auto; display: inline-block; border-bottom: 1px solid currentColor; padding-bottom: 0.25rem; align-self: flex-start; }
 .card:hover .card__link { color: var(--ink); }
 
@@ -514,6 +525,15 @@ html.js .reveal { opacity: 0; transform: translateY(42px); }
   margin-bottom: 0.6rem;
 }
 .tl__body p { color: var(--paper-dim); max-width: 52rem; }
+.tl__org { color: var(--paper); opacity: 0.8; margin-bottom: 0.9rem; }
+.tl__list { max-width: 52rem; }
+.tl__list li {
+  position: relative;
+  padding: 0.3rem 0 0.3rem 1.4rem;
+  color: var(--paper-dim);
+}
+.tl__list li::before { content: "→"; position: absolute; left: 0; color: var(--acid); }
+.tl--award h3 { color: var(--acid); }
 @media (max-width: 640px) { .tl { grid-template-columns: 1fr; gap: 0.6rem; } }
 
 /* ---------- contact ---------- */
@@ -559,3 +579,9 @@ html.js .reveal { opacity: 0; transform: translateY(42px); }
   .marquee__track { animation-duration: 200s; }
   html.js .reveal { opacity: 1; transform: none; }
 }
+
+/* long single-word titles must stay inside the card */
+.card--feature .card__title { font-size: clamp(1.5rem, 2.9vw, 2.3rem); }
+
+/* phones: keep the longest contact-heading word inside the screen */
+@media (max-width: 480px) { .display--huge { font-size: 8.4vw; } }
